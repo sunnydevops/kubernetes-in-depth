@@ -1,24 +1,24 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
-  name: my-deployment
+  name: my-rs
   labels:
     app: my-app
     type: web
-    ser: load-baloncar
 spec:
   selector:
     matchLabels:
       type: web
-  replicas: 6
+  replicas: 3
   template:
     metadata:
       name: my-pod
       labels:
         app: my-app
         type: web
-        ser: load-baloncar
     spec:
       containers:
         - image:  nginx
-          name:  myimage
+          name:  my-image
+
+      
