@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Issuer
+metadata:
+  name: letsencrypt-prod
+  namespace: graylog
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: rajiv1mahato@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+
